@@ -4,12 +4,22 @@
     <meta charset="utf-8">
     <title>BumbleCrumble</title>
     <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@700&display=swap" rel="stylesheet">
   </head>
   <body>
-<h1>Bumble Crumble</h1>
+<h1 class="playhead">Bumble Crumble</h1>
 
-<canvas id="mycanvas" width="420" height="300" ></canvas>
 
+
+<button class="pause" onclick="pause()" type="button" name="button">PAUSE</button>
+<button class="resume disabled" onclick="resume()" type="button" name="button">RESUME</button>
+
+<canvas id="mycanvas" width="420"   style=" display :block;"  height="300" ></canvas>
+
+<h2 class="timer"><b>TIMER</b></h2>
+<div class="timer">
+  10
+</div>
 
     <script src="app.js" charset="utf-8"></script>
   </body>
