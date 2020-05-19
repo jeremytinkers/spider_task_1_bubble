@@ -103,6 +103,26 @@ setInterval(function() {
   console.log(n);
 }, 2000);
 
+//slowing generation on click of felix FELICIS
+var f_count = 2;
+
+function felixslow() {
+
+  if (f_count > 1) {
+    inc = 0;
+    f_count--;
+  } else if (f_count == 1) {
+    document.querySelector(".felix").classList.add("disabledpartially");
+
+  } else {
+    document.querySelector(".felix").classList.remove("disabledpartially");
+    document.querySelector(".felix").classList.add("disabled");
+  }
+
+}
+
+
+
 
 // function to Remove bubbles that are clicked once.
 function clickedcircle(e) {
@@ -198,25 +218,24 @@ function drawC() {
       var c;
       c = circ[i][j];
       if (c.status == 1) {
-        
-        if(d<n)
-        {
 
-        c.r = Math.floor(Math.random() * 21) + 50;
+        if (d < n) {
 
-        if (c.x + c.dx > canvas.width - c.r || c.x + c.dx < c.r)
-          c.dx = -c.dx;
-        if (c.y + c.dy > canvas.height - c.r || c.y + c.dy < c.r)
-          c.dy = -c.dy;
+          c.r = Math.floor(Math.random() * 21) + 50;
 
-        collisiondetect();
-        c.x = c.x + c.dx;
-        c.y = c.y + c.dy;
+          if (c.x + c.dx > canvas.width - c.r || c.x + c.dx < c.r)
+            c.dx = -c.dx;
+          if (c.y + c.dy > canvas.height - c.r || c.y + c.dy < c.r)
+            c.dy = -c.dy;
+
+          collisiondetect();
+          c.x = c.x + c.dx;
+          c.y = c.y + c.dy;
 
 
-        p = Math.floor((Math.random() * 256));
-        q = Math.floor((Math.random() * 256));
-        r = Math.floor((Math.random() * 256));
+          p = Math.floor((Math.random() * 256));
+          q = Math.floor((Math.random() * 256));
+          r = Math.floor((Math.random() * 256));
 
 
 
@@ -228,19 +247,19 @@ function drawC() {
 
 
 
+        }
+
       }
+
+      drawS();
+      checka();
+      //  requestAnimationFrame(drawC);
+
 
     }
 
-  drawS();
-  checka();
-//  requestAnimationFrame(drawC);
-
-
-}
-
 }
 
 
 
-var interval=setInterval(drawC,100);
+var interval = setInterval(drawC, 100);
